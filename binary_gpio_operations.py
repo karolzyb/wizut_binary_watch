@@ -23,3 +23,7 @@ def binary_to_led(list_b, list_g):
             # print ("i: " + str(i) + " element z binary == 1")
             # print ("i: " + str(i) + " wartosc list_binary[i]: " + str(list_binary[i]))
             GPIO.output(list_g[i], GPIO.HIGH)
+
+def set_gpio_low(input_list):
+    for i in range(len(input_list)):
+        GPIO.output(input_list[i], GPIO.LOW)

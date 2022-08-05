@@ -11,10 +11,11 @@
 import RPi.GPIO as GPIO
 import time
 import sys
-from binary_operations import *
+from binary_gpio_operations import *
 from get_time import *
+from print_outs import *
 from safety_check import *
-from welcome_print import *
+
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -31,6 +32,7 @@ GPIO.setup(6, GPIO.OUT)
 GPIO.setup(5, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
 
+
 # lists of GPIO pins to LEDs reffering to hours, minutes, seconds
 list_h_gpio = [20, 16, 12, 25, 24]
 list_m_gpio = [26, 19, 13, 6, 5, 22]
@@ -46,38 +48,39 @@ def main():
 
     welcome_print()
 
-    safety_check(len(sys.argv), sys.argv)
+    safety_check(sys.argv)
 
     while True:
 
-        display_hour, display_min, display_sec = get_time(len(sys.argv), sys.argv)
+        current_hour, current_min, current_sec = get_time(sys.argv)
 
-        # # wyswietlanie w formie dziesietnej
-        # print(f"Decimal watch: {display_hour:02d}:{display_min:02d}:{display_sec}")
-        # # wyswietlanie w formie binarnej
-        # print(f"Binary watch: {display_hour:05b}:{display_min:06b}:{((display_sec)%2):b}")
+        # time_test_print(current_hour, current_min, current_sec)
 
-        list_h_binary = int_to_bin_list(display_hour, 5)
-        list_m_binary = int_to_bin_list(display_min, 6)
-        list_s_binary = int_to_bin_list(display_sec%2, 1)
+        list_h_binary = int_to_bin_list(current_hour, 5)
+        list_m_binary = int_to_bin_list(current_min, 6)
+        list_s_binary = int_to_bin_list(current_sec%2, 1)
         binary_to_led(list_h_binary, list_h_gpio)
         binary_to_led(list_m_binary, list_m_gpio)
         binary_to_led(list_s_binary, list_s_gpio)
 
-        time.sleep(0.2)
+        time.sleep(0.5)
 
 
 try:
     main()
 
 except KeyboardInterrupt:
-    print("Program stopped")
+    print(f" Program stopped")
     # setting all gpios as LOW
-    for i in range(len(list_h_gpio)):
-        GPIO.output(list_h_gpio[i], GPIO.LOW)
-    for i in range(len(list_m_gpio)):
-        GPIO.output(list_m_gpio[i], GPIO.LOW)
-    for i in range(len(list_s_gpio)):
-        GPIO.output(list_s_gpio[i], GPIO.LOW)
+    # for i in range(len(list_h_gpio)):
+    #     GPIO.output(list_h_gpio[i], GPIO.LOW)
+    # for i in range(len(list_m_gpio)):
+    #     GPIO.output(list_m_gpio[i], GPIO.LOW)
+    # for i in range(len(list_s_gpio)):
+    #     GPIO.output(list_s_gpio[i], GPIO.LOW)
+    set_gpio_low(list_h_gpio)
+    set_gpio_low(list_m_gpio)
+    set_gpio_low(list_s_gpio)
+
     # cleanup for setting gpios as input (default)
     GPIO.cleanup()
