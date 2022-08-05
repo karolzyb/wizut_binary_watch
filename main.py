@@ -47,15 +47,11 @@ list_s_binary = [None]
 def main():
 
     welcome_print()
-
     safety_check(sys.argv)
 
     while True:
-
         current_hour, current_min, current_sec = get_time(sys.argv)
-
         # time_test_print(current_hour, current_min, current_sec)
-
         list_h_binary = int_to_bin_list(current_hour, 5)
         list_m_binary = int_to_bin_list(current_min, 6)
         list_s_binary = int_to_bin_list(current_sec%2, 1)
@@ -72,12 +68,6 @@ try:
 except KeyboardInterrupt:
     print(f" Program stopped")
     # setting all gpios as LOW
-    # for i in range(len(list_h_gpio)):
-    #     GPIO.output(list_h_gpio[i], GPIO.LOW)
-    # for i in range(len(list_m_gpio)):
-    #     GPIO.output(list_m_gpio[i], GPIO.LOW)
-    # for i in range(len(list_s_gpio)):
-    #     GPIO.output(list_s_gpio[i], GPIO.LOW)
     set_gpio_low(list_h_gpio)
     set_gpio_low(list_m_gpio)
     set_gpio_low(list_s_gpio)

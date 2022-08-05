@@ -4,12 +4,9 @@ def get_time(input_args):
     """Function for parsing GMT time into separated variables of hours, minutes and seconds, takes system arguments as an input to adjust chosen timezone"""
     # pobieranie czasu
     if len(input_args) == 2:
-    #
         if int(input_args[1]) >= -12 and int(input_args[1]) <= 12:
             current_time = time.gmtime()
             return (current_time.tm_hour + (int(input_args[1])))%24, current_time.tm_min, current_time.tm_sec
-        else:
-            print(f"Passed wrong argument")
     else:
         current_time = time.gmtime()
         return current_time.tm_hour, current_time.tm_min, current_time.tm_sec
