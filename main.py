@@ -12,7 +12,9 @@ import RPi.GPIO as GPIO
 import time
 import sys
 from binary_operations import *
+from get_time import *
 from safety_check import *
+from welcome_print import *
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -42,30 +44,14 @@ list_s_binary = [None]
 
 def main():
 
-    print(f"Binary watch - default set to GMT/UTC timezone")
-    print(f"Pass a single argument of integer number within scope -12 to 12 to set corresponding timezone")
-    print(f"To stop press ctrl+c\n")
-
+    welcome_print()
 
     safety_check(len(sys.argv), sys.argv)
 
-
     while True:
-        # pobieranie czasu
-        if len(sys.argv) == 2:
-        #
-            if int(sys.argv[1]) >= -12 and int(sys.argv[1]) <= 12:
-                current_time = time.gmtime()
-                display_hour = (current_time.tm_hour + (int(sys.argv[1])))%24
-                display_min = current_time.tm_min
-                display_sec = current_time.tm_sec
-            else:
-                print(f"Passed wrong argument")
-        else:
-            current_time = time.gmtime()
-            display_hour = current_time.tm_hour
-            display_min = current_time.tm_min
-            display_sec = current_time.tm_sec
+
+        display_hour, display_min, display_sec = get_time(len(sys.argv), sys.argv)
+
         # # wyswietlanie w formie dziesietnej
         # print(f"Decimal watch: {display_hour:02d}:{display_min:02d}:{display_sec}")
         # # wyswietlanie w formie binarnej
