@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------
 # Created By  : Karol Zyber
-# Created Date: 2022-05-23
+# Created Date: 2022-08-05
 # version ='1.0'
 # ---------------------------------------------------------------------------
 # Binary watch - python3 script
@@ -69,7 +69,7 @@ def main():
     print("To stop press ctrl+c\n")
 
     #sprawdzenie czy mamy 1 albo 0 argumentow do main
-    if len(sys.argv)==2:
+    if len(sys.argv) == 2:
         string = sys.argv[1]
         # print(f"String: {string}")
 
@@ -77,25 +77,25 @@ def main():
         for element in string:
             # print(element)
             # print(ord(element))
-            if ord(element)!=45 and (ord(element)<45 or ord(element)>57):
+            if ord(element) != 45 and (ord(element) < 45 or ord(element) > 57):
                 print(f"Run program again & Pass none or only one argument (int within -12 to 12)")
                 sys.exit('Arg other than digits')
 
         #sprawdzenie czy mamy liczbe calkowita
-        if float(string)%1!=0:
+        if float(string)%1 != 0:
             # print(f"{float(string)%1}")
             print(f"Run program again & Pass none or only one argument (int within -12 to 12)")
             sys.exit('Not int number')
 
         #sprawdzenie zakresu -12 do 12
-        if int(sys.argv[1])>=-12 and int(sys.argv[1])<=12:
+        if int(sys.argv[1]) >= -12 and int(sys.argv[1]) <= 12:
             print(f"Chosen timezone: {(int(sys.argv[1])):02d}:00 GMT")
             # print(f"{sys.argv[1][0]}")
         else:
             print(f"Run program again & Pass none or only one argument (int within -12 to 12)")
             sys.exit('Int out of the scope')
 
-    elif len(sys.argv)==1:
+    elif len(sys.argv) == 1:
         print(f"Chosen timezone: 00:00 GMT")
 
     else:
@@ -105,9 +105,9 @@ def main():
 
     while True:
         # pobieranie czasu
-        if len(sys.argv)==2:
+        if len(sys.argv) == 2:
         #
-            if int(sys.argv[1])>=-12 and int(sys.argv[1])<=12:
+            if int(sys.argv[1]) >= -12 and int(sys.argv[1]) <= 12:
                 current_time = time.gmtime()
                 display_hour = (current_time.tm_hour + (int(sys.argv[1])))%24
                 display_min = current_time.tm_min
@@ -131,7 +131,7 @@ def main():
         binary_to_led(list_m_binary, list_m_gpio)
         binary_to_led(list_s_binary, list_s_gpio)
 
-        time.sleep(1)
+        time.sleep(0.2)
 
 
 try:
