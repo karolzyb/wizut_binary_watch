@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------
 # Created By  : Karol Zyber
-# Created Date: 2022-08-05
+# Created Date: 2022-08-07
 # version ='1.0'
 # ---------------------------------------------------------------------------
 # Binary watch - python3 script
@@ -16,7 +16,7 @@ from get_time import *
 from print_outs import *
 from safety_check import *
 
-
+# initial GPIO setup
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(21, GPIO.OUT)
@@ -31,7 +31,6 @@ GPIO.setup(13, GPIO.OUT)
 GPIO.setup(6, GPIO.OUT)
 GPIO.setup(5, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
-
 
 # lists of GPIO pins to LEDs reffering to hours, minutes, seconds
 list_h_gpio = [20, 16, 12, 25, 24]
@@ -59,7 +58,7 @@ def main():
         binary_to_led(list_m_binary, list_m_gpio)
         binary_to_led(list_s_binary, list_s_gpio)
 
-        time.sleep(0.5)
+        time.sleep(1)
 
 
 try:
