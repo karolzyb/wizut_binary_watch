@@ -2,7 +2,8 @@
 Binary watch for RPi
 
 Created By  : Karol Zyber
-Created Date: 2022-04-27
+Initial Date: 2022-04-27
+Last update: 2022-08-07
 version ='1.0'
 
 Binary watch - python3 script
