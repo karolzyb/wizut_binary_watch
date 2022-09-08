@@ -3,7 +3,7 @@ Binary watch for RPi
 
 Created By  : Karol Zyber
 Initial Date: 2022-04-27
-Last update: 2022-08-07
+Last update: 2022-09-08
 version ='1.0'
 
 Binary watch - python3 script
@@ -14,3 +14,6 @@ Running instructions:
 Binary watch - default set to GMT/UTC timezone
 Pass a single argument of integer number within scope -12 to 12 to set corresponding timezone
 To stop press ctrl+c
+
+Logs:
+2022-09-08 tests branch creation
