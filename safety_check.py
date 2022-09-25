@@ -6,20 +6,20 @@ def safety_check(input_args):
     """Function for checking if passed argument is valid (integer in range -12 to 12). Takes command line arguments as an input"""
     # check for number of passed command line arguments
     if len(input_args) == 2:
-        arg_string = input_args[1]
-        # print(f"String: {arg_string}")
+        passed_argument = input_args[1]
+        # print(f"String: {passed_argument}")
 
-        # check for having only integers (digits withing range of 45-57 ASCII codes) and possibly for '-' sign (45 ASCII code) for negative numbers
-        for element in arg_string:
+        # check for having only integers (digits within range of 45-57 ASCII codes) and possibly for '-' sign (45 ASCII code) for negative numbers
+        for element in passed_argument:
             # print(element)
             # print(ord(element))
-            if (ord(element) < 45 or ord(element) > 57) and ord(element) != 45:
+            if (ord(element) < 48 or ord(element) > 57) and ord(element) != 45:
                 print_warning()
                 sys.exit('Arg other than digits')
 
         # check for having only integer number
-        if float(arg_string)%1 != 0:
-            # print(f"{float(arg_string)%1}")
+        if float(passed_argument)%1 != 0:
+            # print(f"{float(passed_argument)%1}")
             print_warning()
             sys.exit('Not int number')
 
