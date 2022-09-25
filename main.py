@@ -2,6 +2,7 @@
 # Created By  : Karol Zyber
 # Created Date: 2022-09-25
 # version ='1.0.1'
+
 # ---------------------------------------------------------------------------
 # Binary watch - python3 script
 # Wydzial Informatyki ZUT
