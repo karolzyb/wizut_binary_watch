@@ -1,7 +1,7 @@
 #----------------------------------------------------------------------------
 # Created By  : Karol Zyber
-# Created Date: 2022-08-07
-# version ='1.0'
+# Created Date: 2022-09-25
+# version ='1.0.1'
 # ---------------------------------------------------------------------------
 # Binary watch - python3 script
 # Wydzial Informatyki ZUT
@@ -32,10 +32,10 @@ GPIO.setup(6, GPIO.OUT)
 GPIO.setup(5, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
 
-# lists of GPIO pins to LEDs reffering to hours, minutes, seconds
-list_h_gpio = [20, 16, 12, 25, 24]
-list_m_gpio = [26, 19, 13, 6, 5, 22]
-list_s_gpio = [21]
+# tuples of GPIO pins to LEDs reffering to hours, minutes, seconds
+list_h_gpio = (20, 16, 12, 25, 24)
+list_m_gpio = (26, 19, 13, 6, 5, 22)
+list_s_gpio = (21,)
 
 # lists for single binary digits of hours, minutes, seconds
 list_h_binary = [None]
