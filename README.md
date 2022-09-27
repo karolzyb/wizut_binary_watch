@@ -16,8 +16,11 @@ Binary watch - default set to GMT/UTC timezone
 Pass a single argument of integer number within scope -12 to 12 to set corresponding timezone
 To stop press ctrl+c
 
-2022-09-25:
-version ='1.0.1'
-- tuple instead of list in main file for groupped GPIOs
-- docstrings & comments correction
-- bugfix for safety_check.py - correction for characters from ASCII chart
+Logs: 
+2022-09-08: version ='1.0'
+tests branch creation 
+
+2022-09-25: version ='1.0.1'
+tuple instead of list in main file for groupped GPIOs
+docstrings & comments correction
+bugfix for safety_check.py - correction for characters from ASCII chart
