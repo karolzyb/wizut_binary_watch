@@ -11,11 +11,11 @@ from binary_gpio_operations import *
    ]
 )
 
-def test_000(x, y, result):
+def test_001(x, y, result):
     assert int_to_bin_list(x, y) == result
 
-# def test_000():
-#     assert int_to_bin_list(12, 3) == [1,1,0,0]
+def test_002():
+    assert int_to_bin_list(12, 3) == [1,1,0,0]
 
 # def test_001():
 #     assert int_to_bin_list(12, 3) == [0,0,0,0,0]
