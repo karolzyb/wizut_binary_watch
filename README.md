@@ -12,8 +12,8 @@ Wydzial Informatyki ZUT
 Studia podyplomowe z zakresu programowania z elementami systemow wbudowanych
 
 Running instructions:
-Binary watch - default set to GMT/UTC timezone
-Pass a single argument of integer number within scope -12 to 12 to set corresponding timezone
+Binary watch: execute main.py - default set to GMT/UTC timezone
+Pass a single command line argument of integer number within scope -12 to 12 to set corresponding timezone
 To stop press ctrl+c
 
 Logs: 
